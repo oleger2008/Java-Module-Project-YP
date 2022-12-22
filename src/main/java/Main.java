@@ -12,7 +12,8 @@ public class Main {
         final String endCommand = "завершить";
         while (!endCommand.equalsIgnoreCase(command)) {
             calculator.addProduct(readProduct());
-            System.out.println("Напишите слово \"Завершить\" для завершения добавления товаров");
+            System.out.println("Если хотите завершить добавление товаров, то введите слово" +
+                    "\"Завершить\".\n В противном случае введите, что угодно.");
             command = scanner.next();
         }
 
@@ -36,7 +37,7 @@ public class Main {
         System.out.println("Введите стоимость этого товара:");
         double price = scanner.nextDouble();
         while (price < 0.) {
-            System.out.println("Введите корректное значение цены товара: " + productName);
+            System.out.println("Введите корректное значение цены товара '" + productName + "':");
             price = scanner.nextDouble();
         }
         return new Product(productName, price);
