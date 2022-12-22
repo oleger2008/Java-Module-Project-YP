@@ -60,7 +60,7 @@ public class Main {
 
     public static void printAveragePrice(double totalCost, int peopleAmount) {
         double avgPrice = totalCost / peopleAmount;
-        System.out.println("Каждый должен заплатить по:");
+        System.out.println("\nКаждый должен заплатить по:");
         String rubleWord = getRubleWordByNum(avgPrice);
         System.out.println(String.format("%.2f %s", avgPrice, rubleWord));
     }
