@@ -12,9 +12,9 @@ public class Main {
         final String endCommand = "завершить";
         while (!endCommand.equalsIgnoreCase(command)) {
             calculator.addProduct(readProduct());
-            System.out.println("Если хотите завершить добавление товаров, то введите слово" +
+            System.out.println("Если хотите завершить добавление товаров, то введите слово " +
                     "\"Завершить\".\n В противном случае введите, что угодно.");
-            command = scanner.next();
+            command = scanner.nextLine();
         }
 
         System.out.println("Добавленные товары:");
