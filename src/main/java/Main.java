@@ -61,7 +61,17 @@ public class Main {
     public static void printAveragePrice(double totalCost, int peopleAmount) {
         double avgPrice = totalCost / peopleAmount;
         System.out.println("Каждый должен заплатить по:");
-        String rubleWord = (Math.floor(avgPrice) == 1.) ? "рубль" : "рубля";
+        String rubleWord = getRubleWordByNum(avgPrice);
         System.out.println(String.format("%.2f %s", avgPrice, rubleWord));
+    }
+
+    public static String getRubleWordByNum(double rubles) {
+        int roundedRubles = ((int) Math.floor(rubles));
+        final int decimalBase = 10;
+        final int hundredBase = 100;
+        if (((roundedRubles % hundredBase) == 11) || ((roundedRubles % decimalBase) != 1)) {
+            return "рублей";
+        }
+        return "рубль";
     }
 }
