@@ -1,9 +1,14 @@
-// dev branch for Y.Practicum
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
-        // ваш код начнется здесь
-        // вы не должны ограничиваться только классом Main и можете создавать свои классы по необходимости
-        System.out.println("Привет Мир");
+        System.out.println("Введи на сколько человек нужно разделить счёт:");
+        Scanner scanner = new Scanner(System.in);
+        int peopleAmount = scanner.nextInt();
+        while (peopleAmount < 1) {
+            System.out.println("Введите корректное количество человек:");
+            peopleAmount = scanner.nextInt();
+        }
     }
 }
