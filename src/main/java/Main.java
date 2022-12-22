@@ -23,12 +23,20 @@ public class Main {
     }
 
     public static int readPeopleAmount() {
-        int peopleAmount = scanner.nextInt();
-        while (peopleAmount < 1) {
+        int amount = 0;
+        final int minPeopleAmount = 1;
+        while (true) {
+            String input = scanner.nextLine();
+            try {
+                amount = Integer.parseInt(input);
+                if (amount >= minPeopleAmount) {
+                    break;
+                }
+            } catch (NumberFormatException | NullPointerException ignored) {
+            }
             System.out.println("Введите корректное количество человек:");
-            peopleAmount = scanner.nextInt();
         }
-        return peopleAmount;
+        return amount;
     }
 
     public static Product readProduct() {
