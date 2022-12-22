@@ -2,16 +2,16 @@ import java.util.Vector;
 
 public class ProductCalculator {
     private double totalCost_ = 0.;
-    private final Vector<String> products_ = new Vector<>();
+    private Vector<Product> products_ = new Vector<>();
 
-    public void addProduct(String name, double price) {
-        products_.add(name);
-        totalCost_ += price;
+    public void addProduct(Product product) {
+        products_.add(product);
+        totalCost_ += product.getPrice();
     }
 
     public void printAllProducts() {
-        for (String product : products_) {
-            System.out.println(product);
+        for (Product product : products_) {
+            System.out.println(product.getName());
         }
     }
 
