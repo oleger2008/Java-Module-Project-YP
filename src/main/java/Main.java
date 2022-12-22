@@ -41,12 +41,19 @@ public class Main {
 
     public static Product readProduct() {
         System.out.println("Введите название товара, который хотите добавить:");
-        String productName = scanner.next();
+        String productName = scanner.nextLine();
         System.out.println("Введите стоимость этого товара:");
-        double price = scanner.nextDouble();
-        while (price < 0.) {
+        double price = 0.;
+        while (true) {
+            String input = scanner.nextLine();
+            try {
+                price = Double.parseDouble(input);
+                if (price > 0.) {
+                    break;
+                }
+            } catch (NumberFormatException | NullPointerException ignored) {
+            }
             System.out.println("Введите корректное значение цены товара '" + productName + "':");
-            price = scanner.nextDouble();
         }
         return new Product(productName, price);
     }
