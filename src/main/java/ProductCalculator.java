@@ -1,8 +1,8 @@
-import java.util.Vector;
+import java.util.ArrayList;
 
 public class ProductCalculator {
     private double totalCost_ = 0.;
-    private Vector<String> products_ = new Vector<>();
+    private ArrayList<String> products_ = new ArrayList<>();
 
     public void addProduct(Product product) {
         products_.add(product.getName());
