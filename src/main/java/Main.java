@@ -66,11 +66,20 @@ public class Main {
 
     public static String getRubleWordByNum(double rubles) {
         int roundedRubles = ((int) Math.floor(rubles));
-        final int decimalBase = 10;
-        final int hundredBase = 100;
-        if (((roundedRubles % hundredBase) == 11) || ((roundedRubles % decimalBase) != 1)) {
-            return "рублей";
+        final int divHundredReminder = roundedRubles % 100;
+        final int divTenReminder = roundedRubles % 10;
+        if (!InRange(divHundredReminder, 11, 14)) {
+            if (InRange(divTenReminder, 2, 4)) {
+                return "рубля";
+            }
+            if (divTenReminder == 1) {
+                return "рубль";
+            }
         }
-        return "рубль";
+        return "рублей";
+    }
+
+    public static boolean InRange(int value, int lower, int upper) {
+        return ((lower <= value) && (value <= upper));
     }
 }
