@@ -7,19 +7,18 @@ public class Main {
         System.out.println("Введите на сколько человек нужно разделить счёт:");
         int peopleAmount = readPeopleAmount();
 
-        ProductCalculator calculator = new ProductCalculator();
         String command = "";
         final String endCommand = "завершить";
         while (!endCommand.equalsIgnoreCase(command)) {
-            calculator.addProduct(readProduct());
+            ProductCalculator.addProduct(readProduct());
             System.out.println("Если хотите завершить добавление товаров, то введите слово " +
                     "\"Завершить\".\n В противном случае введите, что угодно.");
             command = scanner.nextLine();
         }
 
         System.out.println("Добавленные товары:");
-        calculator.printAllProducts();
-        printAveragePrice(calculator.getTotalCost(), peopleAmount);
+        ProductCalculator.printAllProducts();
+        printAveragePrice(ProductCalculator.getTotalCost(), peopleAmount);
     }
 
     public static int readPeopleAmount() {
